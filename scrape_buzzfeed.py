@@ -9,28 +9,28 @@ db = dataset.connect("sqlite:///listicles.db")
 table = db['listicles']
 
 # buzzfeed url
-buzzfeed = "http://www.buzzfeed.com/%s"
+buzzfeed = "http://www.buzzfeed.com%s"
 
-# category patterns
+# category patterns - some of these are broken bc they scroll rather than page
 categories = [
-  "animals/?p=%d&z=3JHTNE&r=1",
-  "celebrity/?p=%d&z=3JHTNE&r=1",
-  "entertainment/?p=%d&z=3JHTNE&r=1",
-  "food/?p=%d&z=3JHTNE&r=1",
-  "LGBT/?p=%d&z=3JHTNE&r=1",
-  "Music/?p=%d&z=3JI0KS&r=1",
-  "Politics/?p=%d&z=3JHTNE&r=1",
-  "Rewind/?p=%d&z=3JI0KS&r=1",
-  "Sports/?p=%d&z=3JI0KS&r=1",
-  "Viral/?p=%d&z=3JI0KS&r=1",
-  "LOL/?p=%d&z=3JHTNE&r=1",
-  "Win/?p=%d&z=3JI0KS&r=1",
-  "OMG/?p=%d&z=3JI0KS&r=1",
-  "Cute/?p=%d&z=3JI0KS&r=1",
-  "Geeky/?p=%d&z=3JI0KS&r=1",
-  "Trashy/?p=%d&z=3JI0KS&r=1",
-  "Fail/?p=%d&z=3JI0KS&r=1",
-  "WTF/?p=%d&z=3JI0KS&r=1"
+  "/animals/?p=%d&z=3JHTNE&r=1",
+  "/celebrity/?p=%d&z=3JHTNE&r=1",
+  "/entertainment/?p=%d&z=3JHTNE&r=1",
+  "/food/?p=%d&z=3JHTNE&r=1",
+  "/LGBT/?p=%d&z=3JHTNE&r=1",
+  "/Music/?p=%d&z=3JI0KS&r=1",
+  "/Politics/?p=%d&z=3JHTNE&r=1",
+  "/Rewind/?p=%d&z=3JI0KS&r=1",
+  "/Sports/?p=%d&z=3JI0KS&r=1",
+  "/Viral/?p=%d&z=3JI0KS&r=1",
+  "/LOL/?p=%d&z=3JHTNE&r=1",
+  "/Win/?p=%d&z=3JI0KS&r=1",
+  "/OMG/?p=%d&z=3JI0KS&r=1",
+  "/Cute/?p=%d&z=3JI0KS&r=1",
+  "/Geeky/?p=%d&z=3JI0KS&r=1",
+  "/Trashy/?p=%d&z=3JI0KS&r=1",
+  "/Fail/?p=%d&z=3JI0KS&r=1",
+  "/WTF/?p=%d&z=3JI0KS&r=1"
 ]
 
 # categories and pages

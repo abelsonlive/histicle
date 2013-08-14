@@ -1,3 +1,3 @@
 histicle
 ========
-![histicle]("imgs/histicle.pdf")
+![histicle](imgs/histicle.png)
