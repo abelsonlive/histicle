@@ -1,7 +1,15 @@
 import requests
 import re
 import json
+import logging
 from bs4 import BeautifulSoup
+
+logger = logging.getLogger("progress")
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter('%(message)s')
+handler = logging.StreamHandler()
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 def is_post_link(tag):
     return tag.name == "a" and tag.has_attr("rel:gt_act") and tag["rel:gt_act"] == "post/title"
@@ -26,14 +34,18 @@ for category in ["lol","win","omg","cute","trashy","fail","wtf","hot","business"
 	
 	page = 1
 
-	while True:
+	for page in range(1,200):
 
 		if category in ajax_categories:
 			paging = "/paging"
+			query_str = ""
 		else:
 			paging = ""
+			query_str = "&z=3JJD78&r=1"
 
-		r = requests.get("http://www.buzzfeed.com/" + category + paging + "?p=" + str(page))
+		to_scrape = "http://www.buzzfeed.com/" + category + paging + "?p=" + str(page) + query_str
+		r = requests.get(to_scrape)
+		logger.info("requesting "+to_scrape)
 
 		if r.status_code != 200:
 			break
@@ -48,7 +60,7 @@ for category in ["lol","win","omg","cute","trashy","fail","wtf","hot","business"
 			num = number_in_list(title)
 			if num and num < 100 and url not in found:
 				found.append(url)
-				results.append({"url": url, "title": title, "expectedListLength": num})
+				results.append({"url": url, "title": title, "expectedListLength": num})		
 
 		page = page + 1
 
