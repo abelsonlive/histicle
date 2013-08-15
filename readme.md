@@ -1,4 +1,4 @@
-histicle
+Listogram
 ========
 ![histicle](imgs/histicle.png)
 

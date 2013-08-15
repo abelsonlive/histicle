@@ -4,7 +4,7 @@ import json
 lengths = []
 lists = json.loads(open("results-confirmed.json","r").read())
 for l in lists:
-	lengths.append(l["expectedListLength"])
+	lengths.append(l["listLength"])
 
 #print lengths
 num_bins = max(lengths)-min(lengths)+1
